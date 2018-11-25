@@ -3,20 +3,16 @@
         <title>Django Girls blog Emma</title>
     </head>
     <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+      <div>
+  <h1><a href="/">Django Girls Blog</a></h1>
+</div>
 
-        <div>
-            <p>published: 24.11.2018, 16:52</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Hey! Mon nom est Emma et ceci est un test de mon site internet. </p>
-        </div>
-
-        <div>
-            <p>published: 24.11.2018, 16:55</p>
-            <h2><a href="">Mon second post</a></h2>
-            <p>Dans ce deuxième poste, je vous salue</p>
-        </div>
+{% for post in posts %}
+  <div>
+      <p>publié: {{ post.published_date }}</p>
+      <h1><a href="">{{ post.title }}</a></h1>
+      <p>{{ post.text|linebreaksbr }}</p>
+  </div>
+{% endfor %}
     </body>
 </html>
